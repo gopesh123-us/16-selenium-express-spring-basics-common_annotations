@@ -1,0 +1,35 @@
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Build output
+bin/
+target/
+
+# Eclipse Core metadata
+.metadata/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# Java-specific ignores
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Maven / Gradle cache
+.mvn/
+.gradle/
+build/
+
+# Other IDEs (optional, in case project is opened elsewhere)
+.idea/
+*.iml
