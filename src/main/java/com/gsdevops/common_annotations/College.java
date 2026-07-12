@@ -1,8 +1,18 @@
 package com.gsdevops.common_annotations;
 
+import org.springframework.stereotype.Component;
+
+@Component("collegeBean")
 public class College {
-	public void test() {
-		System.out.println("Testing class!!");
+	
+	private Principal principal;
+	
+	public College(Principal principal) {
+		this.principal = principal;
 	}
 
+	public void test() {
+		principal.principalInfo();
+		System.out.println("Testing college class!!");
+	}
 }

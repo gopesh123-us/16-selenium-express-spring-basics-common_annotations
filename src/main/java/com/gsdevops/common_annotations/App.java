@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * Hello world!
+ * Main class
  *
  */	
 
@@ -16,5 +16,16 @@ public class App
     	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
     	College college = context.getBean("collegeBean", College.class);
     	college.test();
+    	
+    	College college1 = context.getBean("colBean", College.class);
+    	college1.test();
+    	
+    	Student student = context.getBean("studentBean", Student.class);
+    	student.markAttendence();
+    	Student std1 = context.getBean("stdBean", Student.class);
+    	std1.markAttendence();
+    	
+    	SubstituteTeacher sub = context.getBean("substituteTeacher", SubstituteTeacher.class);
+    	sub.getSubject();
     }
 }
