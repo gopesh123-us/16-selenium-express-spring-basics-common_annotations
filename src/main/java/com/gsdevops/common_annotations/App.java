@@ -19,13 +19,19 @@ public class App
     	
     	College college1 = context.getBean("colBean", College.class);
     	college1.test();
-    	
-    	Student student = context.getBean("studentBean", Student.class);
-    	student.markAttendence();
+
     	Student std1 = context.getBean("stdBean", Student.class);
     	std1.markAttendence();
     	
     	SubstituteTeacher sub = context.getBean("substituteTeacher", SubstituteTeacher.class);
     	sub.getSubject();
+    	
+    	Car car = context.getBean("car", Car.class);
+    	car.drive();
+    	
+    	Laptop laptop = context.getBean("laptopBean", Laptop.class);
+    	laptop.showConfiguration();
+    	
+    	((AnnotationConfigApplicationContext)context).close();
     }
 }

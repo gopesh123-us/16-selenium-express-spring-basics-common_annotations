@@ -1,10 +1,14 @@
 package com.gsdevops.common_annotations;
 
-import org.springframework.stereotype.Component;
-
-@Component("studentBean")
 public class Student {
+
+	private Subject subject;
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
+	}
+
 	public void markAttendence() {
-		System.out.println("Present Sir!!");
+		System.out.println("Present Sir! I am a student of " + subject.getSubjectName());
 	}
 }
