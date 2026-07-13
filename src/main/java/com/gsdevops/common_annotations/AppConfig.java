@@ -2,8 +2,10 @@ package com.gsdevops.common_annotations;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
+@PropertySource("classpath:college-info.properties")
 public class AppConfig {
 
 	@Bean("colBean")
@@ -40,7 +42,7 @@ public class AppConfig {
 		return car;		
 	}
 	
-	@Bean("engine")
+	
 	public Engine engineBean() {
 		Engine engine = new Engine();
 		engine.setEngineType("Electric");
@@ -55,8 +57,7 @@ public class AppConfig {
 		laptop.setProcessor(processorBean());
 		return laptop;
 	}
-	
-	@Bean
+
 	public Processor processorBean() {
 		Processor processor = new Processor();
 		processor.setBrand("Intel");
@@ -73,7 +74,7 @@ public class AppConfig {
 		return computer;
 	}
 	
-	@Bean
+
 	public CPU cpuBean() {
 		CPU cpu = new CPU();
 		cpu.setModel("Ryzen 7");
@@ -81,7 +82,7 @@ public class AppConfig {
 		return cpu;
 	}
 	
-	@Bean
+
 	public Memory memoryBean() {
 		Memory memory = new Memory();
 		memory.setSize(32);
@@ -89,15 +90,32 @@ public class AppConfig {
 		return memory;
 	}
 	
-	@Bean
+
 	public Teacher teacherBean() {
 		Teacher teacher = new MathTeacher();
 		return teacher;
 	}	
 	
+
 	public Teacher substituteTeacher() {
 		Teacher subteacher = new SubstituteTeacher();
 		return subteacher;
+	}
+	
+	@Bean
+	public Admin studentAdmin() {
+		Admin admin = new StudentAdmin();
+		return admin;
+	}
+	
+	@Bean
+	public Discount studentDiscount() {
+		return new StudentDiscount();
+	}
+	
+	@Bean
+	public Discount earlyBirdDiscount() {
+		return new EarlyBirdDiscount();
 	}
 	
 }
