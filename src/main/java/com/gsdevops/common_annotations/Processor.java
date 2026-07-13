@@ -15,6 +15,5 @@ public class Processor {
 	}
 	public void setNumberOfCores(int numberOfCores) {
 		this.numberOfCores = numberOfCores;
-	}
-	
+	}	
 }

@@ -14,24 +14,22 @@ public class App
     public static void main( String[] args )
     {
     	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-    	College college = context.getBean("collegeBean", College.class);
-    	college.test();
     	
     	College college1 = context.getBean("colBean", College.class);
-    	college1.test();
+    	college1.runCollege();
 
     	Student std1 = context.getBean("stdBean", Student.class);
     	std1.markAttendence();
     	
-    	SubstituteTeacher sub = context.getBean("substituteTeacher", SubstituteTeacher.class);
-    	sub.getSubject();
-    	
+    	   	
     	Car car = context.getBean("car", Car.class);
     	car.drive();
     	
     	Laptop laptop = context.getBean("laptopBean", Laptop.class);
     	laptop.showConfiguration();
     	
+    	Computer computer = context.getBean("computerBean", Computer.class);
+    	computer.showSpecifications();
     	((AnnotationConfigApplicationContext)context).close();
     }
 }

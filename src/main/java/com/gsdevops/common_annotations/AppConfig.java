@@ -1,16 +1,17 @@
 package com.gsdevops.common_annotations;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = { "com.gsdevops.common_annotations" })
 public class AppConfig {
 
 	@Bean("colBean")
 	public College collegeBean() {
-		return new College(principalBean());
+		College college = new College(principalBean());
+		college.setTeacher(teacherBean());
+		college.setSubstituteTeacher(substituteTeacher());
+		return college;
 	}
 
 	@Bean("stdBean")
@@ -18,7 +19,7 @@ public class AppConfig {
 		Student student = new Student();
 		student.setSubject(subjectBean());
 		return student;
-	}
+	}	
 	
 	@Bean("principal")
 	public Principal principalBean() {
@@ -61,6 +62,42 @@ public class AppConfig {
 		processor.setBrand("Intel");
 		processor.setNumberOfCores(8);
 		return processor;
+	}
+	
+	@Bean
+	public Computer computerBean() {
+		Computer computer = new Computer();
+		computer.setComputerName("Development Machine");
+		computer.setCpu(cpuBean());
+		computer.setMemory(memoryBean());
+		return computer;
+	}
+	
+	@Bean
+	public CPU cpuBean() {
+		CPU cpu = new CPU();
+		cpu.setModel("Ryzen 7");
+		cpu.setSpeed(4.5);
+		return cpu;
+	}
+	
+	@Bean
+	public Memory memoryBean() {
+		Memory memory = new Memory();
+		memory.setSize(32);
+		memory.setType("DDR5");
+		return memory;
+	}
+	
+	@Bean
+	public Teacher teacherBean() {
+		Teacher teacher = new MathTeacher();
+		return teacher;
+	}	
+	
+	public Teacher substituteTeacher() {
+		Teacher subteacher = new SubstituteTeacher();
+		return subteacher;
 	}
 	
 }
